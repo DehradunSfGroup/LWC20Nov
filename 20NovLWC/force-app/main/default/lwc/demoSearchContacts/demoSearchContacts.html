@@ -1,0 +1,27 @@
+<template>
+    <lightning-card title="Search Any Contact" icon-name="custom:custom17">
+        <lightning-layout vertical-align="center">
+            <lightning-layout-item padding="around-medium">
+                <lightning-input onchange={setSearchTerm} label="Enter Phone"></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-medium">
+                <lightning-button label="Search" onclick={handleSearch} variant="brand"></lightning-button>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-medium"> 
+                <template if:true={noResultFound}>
+                    No Results found
+                </template>
+                <template if:true={showContacts}>
+                    <template for:each={searchResults} for:item="eachSearchResult">
+                        <p key={eachSearchResult.Id}>
+                            Name - {eachSearchResult.Name}
+                        </p>
+                    </template>
+                </template>
+            </lightning-layout-item>
+        </lightning-layout>
+       
+        
+        
+    </lightning-card>
+</template>

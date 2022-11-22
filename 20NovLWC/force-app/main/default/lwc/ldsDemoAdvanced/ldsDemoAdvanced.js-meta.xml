@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__RecordPage</target>
+        <target>lightning__HomePage</target>
+    </targets>
+    <masterLabel>Using Advanced LDS</masterLabel>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage">
+            <property name="iconName" type="String" label="Icon Name as per LWC Standard" default="custom:custom1" />
+            <property name="fieldNames" type="String" label="Name of Fields" default="Id" />
+            <property name="objectApiName" type="String" label="API Name of Object" default="Account" />
+            <property name="cardTitle" type="String" label="Title for Lightning card" default="Edit Account" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

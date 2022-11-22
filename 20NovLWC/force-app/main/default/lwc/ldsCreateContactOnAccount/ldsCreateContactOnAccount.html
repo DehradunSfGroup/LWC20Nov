@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title="Create a related Contact" icon-name="standard:contact">
+        <lightning-input label="Enter First Name" onchange={handleFirstNameChange} class="slds-m-around_small"></lightning-input>
+        <lightning-input label="Enter Last Name" onchange={handleLastNameChange} class="slds-m-around_small"></lightning-input>
+        <lightning-input label="Enter Phone Number" onchange={handlePhoneChange} class="slds-m-around_small"></lightning-input>
+        <lightning-button label="Create Contact" class ="slds-align_absolute-center" variant="brand" onclick={createContact}></lightning-button>
+
+        <lightning-record-form object-api-name="Account" record-id={recordId} layout-type="compact"></lightning-record-form>
+    </lightning-card>
+</template>

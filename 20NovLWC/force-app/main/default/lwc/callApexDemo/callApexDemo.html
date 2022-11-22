@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title="Call Apex in LWC" icon-name="custom:custom2">
+        <template for:each={contactList} for:item="eachContact">
+            <p key={eachContact.Id}>
+                Contact Id: {eachContact.Id}
+            </p>
+
+        </template>
+        <lightning-button label="Get Accounts" onclick={getAccountData}></lightning-button>
+        <template if:true={showAccounts}>
+            <template for:each={accountList} for:item="eachAccount">
+                <p key={eachAccount.Id}>
+                    Account Id : {eachAccount.Id}
+                </p>
+            </template>
+        </template>
+    </lightning-card>
+</template>

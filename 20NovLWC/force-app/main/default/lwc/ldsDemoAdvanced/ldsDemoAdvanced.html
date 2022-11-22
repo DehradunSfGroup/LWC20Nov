@@ -1,0 +1,13 @@
+<template>
+
+    <lightning-card title={cardTitle} icon-name={iconName}>
+        <lightning-record-edit-form object-api-name={objectApiName} record-id={recordId} onsubmit={handleSubmit}
+            onsuccess={handleSuccess}>
+            <template for:each={fieldNameArray} for:item="eachField">
+                <lightning-input-field key={eachField} field-name={eachField}></lightning-input-field>
+            </template>
+            <lightning-button class="slds-m-around_medium slds-align_absolute-center" variant="brand" type="submit"
+                label="Submit"></lightning-button>
+        </lightning-record-edit-form>
+    </lightning-card>
+</template>

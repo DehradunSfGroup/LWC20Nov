@@ -1,0 +1,6 @@
+<template>
+    <lightning-card title="Create a Contact" icon-name="custom:custom1">
+        <lightning-record-form object-api-name="Contact" fields={fields} onsubmit={handleSubmit} onsuccess={showSuccessMessage} onerror={showErrorMessage}>
+        </lightning-record-form>
+    </lightning-card>
+</template>

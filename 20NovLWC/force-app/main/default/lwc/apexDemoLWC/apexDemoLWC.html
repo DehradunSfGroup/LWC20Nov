@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="Call Apex in LWC" icon-name="custom:custom1">
+        <template if:true={showContacts}>
+            Fetched via Wire
+            <template for:each={contactList} for:item="eachContact">
+                <p key={eachContact.Id}>Contact Name: {eachContact.Name}</p>
+                <p key={eachContact.Id}>Contact Phone: {eachContact.Phone}</p>
+            </template>
+        </template>
+        <lightning-button label="Fetch Opportunities" onclick={getOpportunities} variant="brand"></lightning-button>
+        <template if:true={showOppties}>
+            <template for:each={opptyList} for:item="eachOppty">
+                <p key={eachOppty.Id}>Opportunity Name: {eachOppty.Name}</p>
+                <p key={eachOppty.Id}>Opportunity Amount: {eachOppty.Amount}</p>
+                <p key={eachOppty.Id}>Opportunity ExpectedRevenue: {eachOppty.ExpectedRevenue}</p>
+            </template>
+        </template>
+    </lightning-card>    
+</template>

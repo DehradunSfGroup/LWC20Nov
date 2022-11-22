@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="Show Contacts" icon-name="custom:custom18">
+        <template for:each={conList} for:item="eachContact">
+            {eachContact.Name}
+            {eachContact.Phone}
+        </template>
+        <lightning-button label="Show Contacts" onclick={fetchContacts}></lightning-button>
+        <template if:true={showContactsImperatively}>
+            <template for:each={conListImperative} for:item="eachContact">
+                {eachContact.Name}
+                {eachContact.Phone}
+            </template>
+        </template>
+    </lightning-card>
+</template>

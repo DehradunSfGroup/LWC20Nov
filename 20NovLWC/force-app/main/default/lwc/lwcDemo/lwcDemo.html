@@ -1,0 +1,16 @@
+<template>
+    <lightning-card icon-name="custom:custom11" title="Dynamic Demo">
+        <lightning-layout>
+            <lightning-layout-item padding="around-small">
+                <lightning-input placeholder="FirstName" label="Enter First Name" onchange={setFirstName}></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small">
+                <lightning-input placeholder="LastName" label="Enter Last Name" onchange={setlastName}></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small">
+                <lightning-input placeholder="Full Name" label="Full name of the candidate is-" disabled="true" value={fullName}></lightning-input>
+            </lightning-layout-item>
+        </lightning-layout>
+        
+    </lightning-card>
+</template>

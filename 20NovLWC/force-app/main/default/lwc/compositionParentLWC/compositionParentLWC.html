@@ -1,0 +1,7 @@
+<template>
+    <lightning-card title="Composition/Parent-Child Communication" icon-name="custom:custom7">
+        <lightning-input placeholder="Enter Something here to pass to child component" onchange={handleInputChange} class="slds-m-around_medium"></lightning-input>
+        <lightning-button label="Send Information to Child Component" onclick={sendInformationToChild} variant="brand" class="slds-m-around_medium"></lightning-button>
+        <c-composition-child-l-w-c></c-composition-child-l-w-c>
+    </lightning-card>
+</template>

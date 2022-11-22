@@ -1,0 +1,76 @@
+<template>
+    <template if:true={showBanner}>
+        <lightning-card class="slds-m-around_small" title="Explore Salesforce Data" icon-name="standard:search">
+            <div class="slds-box slds-p-around_none slds-m-top_x-small slds-m-bottom_medium slds-m-horizontal_none">
+                <lightning-layout multiple-rows>
+                    <lightning-layout-item size="6">
+                        <div class="slds-p-around_medium">
+                            <lightning-combobox 
+                                name="sobjectlist" 
+                                label="Select Object"
+                                value={objectValue} 
+                                placeholder="Select Object"
+                                options={objectList} 
+                                onchange={handleChange}
+                                >
+                            </lightning-combobox>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="3" padding="around-small">
+                        <div class="slds-p-around_large">
+                            <lightning-button variant="brand" label="Search" onclick={fetchObjectData} disabled={searchButtonDisabled}></lightning-button>
+                            
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="3" padding="around-small">
+                        <div class="slds-p-around_large">
+                            <lightning-button label="Clear" onclick={clearSearch} disabled={searchButtonDisabled}></lightning-button>
+                        </div>
+                    </lightning-layout-item>
+                    <template if:true={showFields}>
+                        <lightning-layout-item padding="around-small" size="12">
+                            <lightning-layout vertical-align="start" class="slds-box">
+                                <lightning-layout-item padding="around-small" size="6">
+                                    <div class="slds-m-around_medium">
+                                        Select Fields
+                                        <lightning-helptext content="Select the fields to be show(If you don't select any fields Name,CreatedDate and Created By will be shown)"></lightning-helptext>
+                                    </div>
+                                    <c-paginator-lwc element-list={fieldsData} onpaginatorchange={handlePaginatorResponse} place-holder-text="Search Fields"></c-paginator-lwc>
+                                    <lightning-datatable 
+                                        key-field="field" 
+                                        data={fieldListToShow} 
+                                        columns={columns}
+                                        default-sort-direction={defaultSortDirection}
+                                        sorted-direction={sortDirection}
+                                        sorted-by={sortedBy}
+                                        onsort={onHandleSort}
+                                        onrowselection={handleRowSelection}
+                                        resize-column-disabled=true
+                                        selected-rows={selection}
+                                    >
+                                    </lightning-datatable>
+                                </lightning-layout-item>
+                                <lightning-layout-item padding="around-small" size="6">
+                                    <div class="slds-p-around_medium">
+                                        <lightning-combobox 
+                                            name="numberofrecords" 
+                                            label="Select Number of Records to fetch"
+                                            value={limitValue} 
+                                            placeholder="Select Limit"
+                                            options={limitValue} 
+                                            onchange={handleChange}
+                                            field-level-help="Select the Number of records to show. By Default 5 record will be loaded">
+                                        </lightning-combobox>
+                                    </div>
+                                </lightning-layout-item>
+                            </lightning-layout>                            
+                        </lightning-layout-item>
+                    </template>
+                </lightning-layout>
+            </div>
+        </lightning-card>
+        <template if:true={showSaleforceData}>
+            <c-salesforce-data-display object-api-name={selectedObject} record-data={recordData} fields={selection} default-fields={defaultFields}></c-salesforce-data-display>
+        </template>
+    </template>
+</template>

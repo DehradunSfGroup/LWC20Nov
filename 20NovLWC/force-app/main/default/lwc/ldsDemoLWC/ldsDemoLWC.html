@@ -1,0 +1,24 @@
+<template>
+    <lightning-card title="Lightning Data Service Demo" icon-name="custom:custom1">
+        <div class="slds-m-around_medium">
+            <div class="slds-text-heading_small">Record View Form</div>
+            <lightning-record-view-form object-api-name="Contact" record-id={recordId} class="slds-m-around_medium">
+                <lightning-output-field field-name={nameField}></lightning-output-field>
+            </lightning-record-view-form>
+            <div class="slds-text-heading_small">Record Edit Form</div>
+            <lightning-record-edit-form object-api-name="Contact" record-id={recordId} onsuccess={handleSuccess} onsubmit={handleSubmit}>
+                <lightning-input-field field-name={contactPhone}></lightning-input-field>
+                <lightning-button variant="brand" label="Update Phone Number" type="submit"></lightning-button>
+            </lightning-record-edit-form>
+            <div class="slds-text-heading_small">Record Form-Compact</div>
+            <lightning-record-form object-api-name="Contact" record-id={recordId} layout-type="Compact"></lightning-record-form>
+
+            <div class="slds-text-heading_small">Record Form-Full</div>
+            <lightning-record-form object-api-name="Contact" record-id={recordId} layout-type="Full"></lightning-record-form>
+
+            <div class="slds-text-heading_small">Record Form-Creation</div>
+            <lightning-record-form object-api-name="Contact" layout-type="Full"></lightning-record-form>
+        </div>
+        
+    </lightning-card>
+</template>

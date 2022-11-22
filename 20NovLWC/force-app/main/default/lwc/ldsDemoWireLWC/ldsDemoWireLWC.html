@@ -1,0 +1,9 @@
+<template>
+    <lightning-card title="LDS with Wire" icon-name="custom:custom1">
+        <template if:true={showData}>
+            <p>Contact Name : {contactDetails.name}</p>
+            <p>Contact Phone : {contactDetails.phone}</p>
+            <p>Contact Owner : {contactDetails.ownerName}</p>
+        </template>
+    </lightning-card>
+</template>

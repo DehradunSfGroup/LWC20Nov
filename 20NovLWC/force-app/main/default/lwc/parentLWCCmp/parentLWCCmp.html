@@ -1,0 +1,9 @@
+<template>
+    <lightning-card title="Child to Parent Component Communication via Events" icon-name="custom:custom9">
+        <div class="slds-m-around_medium">
+            <c-child-l-w-c-cmp onchildevent={handleChildEvent}></c-child-l-w-c-cmp>
+            <div class="slds-m-around_medium"> Message from Child - {messageFromChild}</div>
+        </div>
+        
+    </lightning-card>
+</template>
